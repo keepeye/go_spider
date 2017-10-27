@@ -4,9 +4,9 @@ package main
 
 import (
     "github.com/PuerkitoBio/goquery"
-    "github.com/hu17889/go_spider/core/common/page"
-    "github.com/hu17889/go_spider/core/common/request"
-    "github.com/hu17889/go_spider/core/spider"
+    "github.com/keepeye/go_spider/core/common/page"
+    "github.com/keepeye/go_spider/core/common/request"
+    "github.com/keepeye/go_spider/core/spider"
 
     "encoding/json"
     "fmt"
