@@ -22,6 +22,7 @@ import (
     //    "golang.org/x/net/html"
     "strings"
 	"compress/gzip"
+    "crypto/tls"
 )
 
 // The HttpDownloader download page by package net/http.
@@ -244,6 +245,9 @@ func (this *HttpDownloader) changeCharsetEncodingAutoGzipSupport(contentTypeStr 
 func connectByHttp(p *page.Page, req *request.Request) (*http.Response, error) {
     client := &http.Client{
         CheckRedirect: req.GetRedirectFunc(),
+        Transport: &http.Transport{
+            TLSClientConfig: &tls.Config{InsecureSkipVerify: true},
+        },
     }
 
     httpreq, err := http.NewRequest(req.GetMethod(), req.GetUrl(), strings.NewReader(req.GetPostdata()))
